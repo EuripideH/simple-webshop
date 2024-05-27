@@ -1,0 +1,18 @@
+/* src/components/Payment.css */
+.payment-methods {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.payment-method {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.payment-method h3 {
+    margin: 0;
+}

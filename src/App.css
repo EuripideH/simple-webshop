@@ -1,0 +1,75 @@
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #282c34;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+main {
+  padding: 2rem;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product {
+  flex: 1 1 calc(25% - 1rem); /* 4 products per row, adjust this value for 3 products per row */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .product {
+      flex: 1 1 calc(33.33% - 1rem); /* 3 products per row on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .product {
+      flex: 1 1 calc(50% - 1rem); /* 2 products per row on even smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .product {
+      flex: 1 1 100%; /* 1 product per row on mobile */
+  }
+}
+
+.cart-item {
+  border: 1px solid #ccc;
+  margin: 1rem 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+button {
+  background-color: #61dafb;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
