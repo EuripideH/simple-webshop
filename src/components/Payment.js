@@ -3,7 +3,7 @@ import React from 'react';
 import { Grid, Paper, Typography } from '@mui/material';
 import './Payment.css';
 
-const Payment = ({ shippingInfo, cartItems }) => {
+const Payment = ({ shippingInfo, cartItems, setShippingInfo }) => {
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
     if (!shippingInfo) {
