@@ -1,16 +1,12 @@
 /* src/components/Payment.css */
-.payment-methods {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+.payment-method {
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
 }
 
-.payment-method {
-    width: 30%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
+.payment-method:hover {
+    background-color: #f0f0f0;
 }
 
 .payment-method h3 {

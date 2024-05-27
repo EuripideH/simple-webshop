@@ -3,20 +3,22 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
+import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import Order from './components/Order';
 import Payment from './components/Payment';
 import ShippingInfoForm from './components/ShippingInfoForm';
+import AddProductForm from './components/AddProductForm';
 import './App.css';
 
 const App = () => {
-    const [products] = useState([
+    const [products, setProducts] = useState([
         { id: 1, name: 'Product 1', description: 'Description for Product 1', price: 29.99 },
         { id: 2, name: 'Product 2', description: 'Description for Product 2', price: 39.99 },
         { id: 3, name: 'Product 3', description: 'Description for Product 3', price: 49.99 },
-        { id: 4, name: 'Product 4', description: 'Description for Product 1', price: 9.99 },
-        { id: 5, name: 'Product 5', description: 'Description for Product 2', price: 99.99 },
-        { id: 6, name: 'Product 6', description: 'Description for Product 3', price: 119.99 }
+        { id: 4, name: 'Product 4', description: 'Description for Product 4', price: 9.99 },
+        { id: 5, name: 'Product 5', description: 'Description for Product 5', price: 99.99 },
+        { id: 6, name: 'Product 6', description: 'Description for Product 6', price: 119.99 }
     ]);
 
     const [cartItems, setCartItems] = useState([]);
@@ -41,6 +43,10 @@ const App = () => {
         setCartItems(cartItems.filter(item => item.id !== product.id));
     };
 
+    const handleAddProduct = (newProduct) => {
+        setProducts([...products, newProduct]);
+    };
+    
     return (
         <Router>
             <div className="app">
@@ -48,10 +54,13 @@ const App = () => {
                 <main>
                     <Routes>
                         <Route path="/" element={<ProductList products={products} addToCart={addToCart} />} />
+                        <Route path="/product/:id" element={<ProductDetail products={products} addToCart={addToCart} />} />
                         <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />} />
-                        <Route path="/order" element={<Order cartItems={cartItems} setShippingInfo={setShippingInfo} />} />
+                        <Route path="/order" element={<Order cartItems={cartItems} />} />
                         <Route path="/payment" element={<Payment shippingInfo={shippingInfo} cartItems={cartItems} />} />
                         <Route path="/shipping-info" element={<ShippingInfoForm onSubmit={handleShippingInfoSubmit} />} />
+                        <Route path="/add-product" element={<AddProductForm onAddProduct={handleAddProduct} />} />
+                   
                     </Routes>
                 </main>
             </div>

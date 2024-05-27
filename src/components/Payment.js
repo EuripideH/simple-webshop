@@ -1,5 +1,6 @@
 // src/components/Payment.js
 import React from 'react';
+import { Grid, Paper, Typography } from '@mui/material';
 import './Payment.css';
 
 const Payment = ({ shippingInfo, cartItems }) => {
@@ -8,55 +9,96 @@ const Payment = ({ shippingInfo, cartItems }) => {
     if (!shippingInfo) {
         return (
             <div className="payment">
-                <h2>Shipping Information</h2>
-                <p>No shipping information provided.</p>
-                <h2>Order Summary</h2>
-                <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
-                <h2>Choose Payment Method</h2>
-                <div className="payment-methods">
-                    <div className="payment-method">
-                        <h3>Bank Card</h3>
-                    </div>
-                    <div className="payment-method">
-                        <h3>PayPal</h3>
-                    </div>
-                    <div className="payment-method">
-                        <h3>Bank Transfer</h3>
-                    </div>
-                </div>
+                <Typography variant="h4" gutterBottom>
+                    Shipping Information
+                </Typography>
+                <Typography variant="body1">
+                    No shipping information provided.
+                </Typography>
+                <Typography variant="h4" gutterBottom>
+                    Order Summary
+                </Typography>
+                <Typography variant="h5" gutterBottom>
+                    Total Price: ${totalPrice.toFixed(2)}
+                </Typography>
+                <Typography variant="h4" gutterBottom>
+                    Choose Payment Method
+                </Typography>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sm={4}>
+                        <Paper className="payment-method">
+                            <Typography variant="h6">Bank Card</Typography>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                        <Paper className="payment-method">
+                            <Typography variant="h6">PayPal</Typography>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                        <Paper className="payment-method">
+                            <Typography variant="h6">Bank Transfer</Typography>
+                        </Paper>
+                    </Grid>
+                </Grid>
             </div>
         );
     }
 
     return (
         <div className="payment">
-            <h2>Shipping Information</h2>
-            <p>Name: {shippingInfo.name}</p>
-            <p>Address: {shippingInfo.address}</p>
-            <p>Mail: {shippingInfo.mail}</p>
-            <h2>Order Summary</h2>
+            <Typography variant="h4" gutterBottom>
+                Shipping Information
+            </Typography>
+            <Typography variant="body1">
+                Name: {shippingInfo.name}
+            </Typography>
+            <Typography variant="body1">
+                Address: {shippingInfo.address}
+            </Typography>
+            <Typography variant="body1">
+                Mail: {shippingInfo.mail}
+            </Typography>
+            <Typography variant="h4" gutterBottom>
+                Order Summary
+            </Typography>
             {cartItems.map(item => (
                 <div key={item.id} className="order-item">
-                    <h3>{item.name} x {item.quantity}</h3>
-                    <p>${(item.price * item.quantity).toFixed(2)}</p>
+                    <Typography variant="h6">
+                        {item.name} x {item.quantity}
+                    </Typography>
+                    <Typography variant="body1">
+                        ${(item.price * item.quantity).toFixed(2)}
+                    </Typography>
                 </div>
             ))}
-            <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
-            <h2>Choose Payment Method</h2>
-            <div className="payment-methods">
-                <div className="payment-method">
-                    <h3>Bank Card</h3>
-                </div>
-                <div className="payment-method">
-                    <h3>PayPal</h3>
-                </div>
-                <div className="payment-method">
-                    <h3>Bank Transfer</h3>
-                </div>
-            </div>
+            <Typography variant="h5" gutterBottom>
+                Total Price: ${totalPrice.toFixed(2)}
+            </Typography>
+            <Typography variant="h4" gutterBottom>
+                Choose Payment Method
+            </Typography>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={4}>
+                    <Paper className="payment-method">
+                        <Typography variant="h6">Bank Card</Typography>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                    <Paper className="payment-method">
+                        <Typography variant="h6">PayPal</Typography>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                    <Paper className="payment-method">
+                        <Typography variant="h6">Bank Transfer</Typography>
+                    </Paper>
+                </Grid>
+            </Grid>
         </div>
     );
 };
 
 export default Payment;
+
 

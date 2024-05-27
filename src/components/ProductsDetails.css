@@ -1,0 +1,9 @@
+/* src/components/ProductDetails.css */
+.product-details {
+    text-align: center;
+    margin: 20px;
+}
+
+.order-item {
+    margin: 10px 0;
+}
