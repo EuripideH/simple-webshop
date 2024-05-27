@@ -1,13 +1,21 @@
 #Project instructions
 
 Open the console and run 
+
 npx create-react-app simple-webshop
+
 cd simple-webshop
+
 add all the files from this repository
+
 npm install react-router-dom
+
 npm install --save-dev @babel/plugin-proposal-private-property-in-object
+
 npm install @mui/material @emotion/react @emotion/styled
+
 follow the rest of the instructions bellow
+
 Happy shopping ^.^
 
 
