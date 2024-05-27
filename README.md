@@ -1,3 +1,5 @@
+#Project instructions
+
 Open the console and run 
 npx create-react-app simple-webshop
 cd simple-webshop
