@@ -56,8 +56,8 @@ const App = () => {
                         <Route path="/" element={<ProductList products={products} addToCart={addToCart} />} />
                         <Route path="/product/:id" element={<ProductDetail products={products} addToCart={addToCart} />} />
                         <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />} />
-                        <Route path="/order" element={<Order cartItems={cartItems} />} />
-                        <Route path="/payment" element={<Payment shippingInfo={shippingInfo} cartItems={cartItems} />} />
+                        <Route path="/order" element={<Order cartItems={cartItems} setShippingInfo={setShippingInfo} />} />
+                        <Route path="/payment" element={<Payment shippingInfo={shippingInfo} cartItems={cartItems} setShippingInfo={setShippingInfo} />} />
                         <Route path="/shipping-info" element={<ShippingInfoForm onSubmit={handleShippingInfoSubmit} />} />
                         <Route path="/add-product" element={<AddProductForm onAddProduct={handleAddProduct} />} />
                    
